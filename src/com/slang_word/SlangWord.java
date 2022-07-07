@@ -6,16 +6,16 @@ public class SlangWord {
 
   public SlangWord(String rawString) {
     String[] extractSlangWord = rawString.split("`");
-    if(extractSlangWord.length != 2) {
+    if (extractSlangWord.length != 2) {
       System.out.println("The slang word is invalid with pattern: \\slang word\\`\\meaning\\");
-    }else {
+    } else {
       this.slangWord = extractSlangWord[0];
       this.meaning = extractSlangWord[1];
     }
   }
 
   public SlangWord(String slangWord, String meaning) {
-    if(Boolean.parseBoolean(slangWord) && Boolean.parseBoolean(meaning)) {
+    if (Boolean.parseBoolean(slangWord) && Boolean.parseBoolean(meaning)) {
       this.slangWord = slangWord;
       this.meaning = meaning;
     }
