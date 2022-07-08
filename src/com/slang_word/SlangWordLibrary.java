@@ -1,5 +1,3 @@
-
-
 package com.slang_word;
 
 import com.constant.ErrorMessage;
@@ -21,21 +19,15 @@ public class SlangWordLibrary {
 
   public SlangWord findBySlangWord(String keyWord) {
     String meaning = null;
-    String upperCaseKeyWord = keyWord.toUpperCase();
-    if (database.get(keyWord) != null) {
-      meaning = database.get(keyWord);
-    } else {
-      if (database.get(upperCaseKeyWord) != null) {
-        meaning = database.get(upperCaseKeyWord);
-        keyWord = upperCaseKeyWord;
-      }
+    String tempt = keyWord.equals(keyWord.toUpperCase()) ? keyWord : keyWord.toUpperCase();
+    if (database.get(tempt) != null) {
+      meaning = database.get(tempt);
     }
-
-    return meaning != null ? new SlangWord(keyWord, meaning) : new SlangWord(keyWord, ErrorMessage.ERROR_NOT_FIND_SLANG_WORD);
+    return meaning != null ? new SlangWord(tempt, meaning) : new SlangWord(keyWord, ErrorMessage.ERROR_NOT_FIND_SLANG_WORD);
   }
 
   public List<SlangWord> searchByDefinition(String keyword) {
-    List<SlangWord> result = new ArrayList<SlangWord>();
+    List<SlangWord> result = new ArrayList<>();
     for (HashMap.Entry<String, String> entry : database.entrySet()) {
       boolean match = Pattern.matches(".*" + keyword + ".*", entry.getValue());
       if (match) {
@@ -43,5 +35,15 @@ public class SlangWordLibrary {
       }
     }
     return result;
+  }
+
+  public boolean creatSlangWord(SlangWord slangWord) {
+    String tempt = slangWord.getSlangWord().equals(slangWord.getSlangWord().toUpperCase()) ? slangWord.getSlangWord() : slangWord.getSlangWord().toUpperCase();
+    if (this.database.containsKey(tempt)) {
+      return false;
+    } else {
+      this.database.put(tempt, slangWord.getMeaning());
+      return true;
+    }
   }
 }

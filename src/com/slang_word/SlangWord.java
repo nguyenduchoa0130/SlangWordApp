@@ -4,6 +4,9 @@ public class SlangWord {
   protected String slangWord = null;
   protected String meaning = null;
 
+  public SlangWord() {
+  }
+
   public SlangWord(String rawString) {
     String[] extractSlangWord = rawString.split("`");
     if (extractSlangWord.length != 2) {
@@ -40,4 +43,5 @@ public class SlangWord {
     return this.slangWord + ": " + this.meaning;
   }
 }
+
 

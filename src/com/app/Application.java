@@ -13,16 +13,17 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Application {
   private static HashMap<String, String> hashMapHistory = new HashMap<>();
+  private static SlangWordLibrary slangWordLibrary = new SlangWordLibrary();
 
   public static void printMenu() {
     System.out.println("\n||================ MENU ================||");
     System.out.println("1. Find meaning by slang word");
     System.out.println("2. Find slang word based on definition");
     System.out.println("3. Show slang word list in history");
+    System.out.println("4. Create a new slang word");
     System.out.println("0. Exit application");
     System.out.println("||======================================||");
   }
@@ -61,7 +62,6 @@ public class Application {
 
   private static void chooseFuntion() {
 
-    SlangWordLibrary slangWordLibrary = new SlangWordLibrary();
     int option;
     System.out.println("====|| WELCOME TO SLANG WORD APPLICATION ||====");
     printMenu();
@@ -79,12 +79,38 @@ public class Application {
       case OptionSlang.OPT_SHOW_LIST_HISTORY_SLANG_WORD:
         showHistoryListSlangWord();
         break;
+      case OptionSlang.OPT_CREATE_NEW_SLANG_WORD:
+        createSlangWord(slangWordLibrary);
+        break;
       default: {
         System.out.println(ErrorMessage.ERROR_NOT_FIND_OPTION);
         chooseFuntion();
         break;
       }
     }
+  }
+
+  private static void createSlangWord(SlangWordLibrary slangWordLibrary) {
+    System.out.printf(Behavior.CREATE_SLANG_WORD);
+    Scanner sc = new Scanner(System.in);
+    String keyWord = sc.nextLine();
+
+    System.out.printf(Behavior.CREATE_DEFINITION);
+    Scanner sc2 = new Scanner(System.in);
+    String defintion = sc2.nextLine();
+
+    SlangWord slangWord = new SlangWord();
+    slangWord.setSlangWord(keyWord);
+    slangWord.setMeaning(defintion);
+
+    boolean resultCreate = slangWordLibrary.creatSlangWord(slangWord);
+    if (resultCreate) {
+      System.out.println(Behavior.CREATE_SLANG_WORD_SUCCESS);
+    } else {
+      System.out.println(ErrorMessage.ERROR_SLANG_EXIST);
+      createSlangWord(slangWordLibrary);
+    }
+
   }
 
   private static void showHistoryListSlangWord() {
@@ -130,4 +156,3 @@ public class Application {
 
 
 }
-

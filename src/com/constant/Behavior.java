@@ -6,6 +6,11 @@ public class Behavior {
   public final static String INPUT_SLANG_WORD = "Please enter slang word: ";
   public final static String INPUT_DEFINITION = "Please enter definition: ";
 
+  public final static String CREATE_SLANG_WORD = "Please enter a slang word: ";
+  public final static String CREATE_DEFINITION = "Please enter a definition: ";
+  public final static String CREATE_SLANG_WORD_SUCCESS = "Create successfully a slang word";
+
+
   public final static String THANKS_MESSAGE = "============THANK YOU && SEE YOU AGAIN============";
   public final static String SHOW_HISTORY_LIST_SLANG_WORD = "The slang word list in search history:  ";
   public final static int TYPE_OPTION = 1;
