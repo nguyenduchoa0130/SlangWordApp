@@ -1,8 +1,8 @@
 package com.slang_word;
 
 public class SlangWord {
-  private String slangWord = null;
-  private String meaning = null;
+  protected String slangWord = null;
+  protected String meaning = null;
 
   public SlangWord(String rawString) {
     String[] extractSlangWord = rawString.split("`");
@@ -15,8 +15,8 @@ public class SlangWord {
   }
 
   public SlangWord(String slangWord, String meaning) {
-      this.slangWord = slangWord;
-      this.meaning = meaning;
+    this.slangWord = slangWord;
+    this.meaning = meaning;
   }
 
   public String getSlangWord() {
@@ -40,3 +40,4 @@ public class SlangWord {
     return this.slangWord + ": " + this.meaning;
   }
 }
+

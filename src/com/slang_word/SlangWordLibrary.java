@@ -1,3 +1,5 @@
+
+
 package com.slang_word;
 
 import com.constant.ErrorMessage;
@@ -20,16 +22,12 @@ public class SlangWordLibrary {
   public SlangWord findBySlangWord(String keyWord) {
     String meaning = null;
     String upperCaseKeyWord = keyWord.toUpperCase();
-    String lowerCaseKeyWord = keyWord.toLowerCase();
     if (database.get(keyWord) != null) {
       meaning = database.get(keyWord);
     } else {
       if (database.get(upperCaseKeyWord) != null) {
         meaning = database.get(upperCaseKeyWord);
-      } else {
-        if (database.get(lowerCaseKeyWord) != null) {
-          meaning = database.get(lowerCaseKeyWord);
-        }
+        keyWord = upperCaseKeyWord;
       }
     }
 
@@ -47,4 +45,3 @@ public class SlangWordLibrary {
     return result;
   }
 }
-
