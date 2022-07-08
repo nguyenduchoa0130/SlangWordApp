@@ -8,6 +8,7 @@ import com.constant.UserOption;
 import com.slang_word.SlangWord;
 import com.slang_word.SlangWordLibrary;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -63,6 +64,9 @@ public class Application {
       case OptionSlang.OPT_FIND_MEANING_BY_SLANG_WORD:
         System.out.println(findSlangByWord(slangWordLibrary));
         break;
+      case OptionSlang.OPT_FIND_SLANG_WORD_BASED_ON_MEANING:
+        findSlangByDefinition(slangWordLibrary);
+        break;
       case OptionSlang.OPT_EXIT_APP: {
         System.out.println(Behavior.THANKS_MESSAGE);
         System.exit(0);
@@ -75,8 +79,23 @@ public class Application {
     }
   }
 
+  private static void findSlangByDefinition(SlangWordLibrary slangWordLibrary) {
+    System.out.printf(Behavior.INPUT_SLANG_WORD);
+    Scanner sc = new Scanner(System.in);
+    String langWord = sc.nextLine();
+    List<SlangWord> listSlangWords = slangWordLibrary.searchByDefinition(langWord);
+    System.out.println("List of Slang word: ");
+
+    if (!listSlangWords.isEmpty() && listSlangWords.size() > 0) {
+      listSlangWords.stream().forEach(System.out::println);
+    } else {
+      System.out.println(ErrorMessage.ERROR_NOT_FIND_SLANG_WORD_IN_LIST);
+    }
+
+  }
+
   private static SlangWord findSlangByWord(SlangWordLibrary slangWordLibrary) {
-    System.out.printf("Please enter slang word: ");
+    System.out.printf(Behavior.INPUT_SLANG_WORD);
     Scanner sc = new Scanner(System.in);
     String langWord = sc.nextLine();
     return slangWordLibrary.findBySlangWord(langWord);
@@ -84,5 +103,4 @@ public class Application {
 
 
 }
-
 

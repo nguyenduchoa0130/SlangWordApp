@@ -7,5 +7,8 @@ public class ErrorMessage {
 
   public final static String ERROR_NOT_FIND_OPTION = "Can't find your option";
 
+  public final static String ERROR_NOT_FIND_SLANG_WORD_IN_LIST = "Can't find slang word in list";
+
+
 
 }
