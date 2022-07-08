@@ -15,10 +15,8 @@ public class SlangWord {
   }
 
   public SlangWord(String slangWord, String meaning) {
-    if (Boolean.parseBoolean(slangWord) && Boolean.parseBoolean(meaning)) {
       this.slangWord = slangWord;
       this.meaning = meaning;
-    }
   }
 
   public String getSlangWord() {

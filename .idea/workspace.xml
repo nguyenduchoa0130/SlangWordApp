@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ced9ae33-bb26-471a-b552-ce45f53bfba0" name="Changes" comment="create SlangWordLibrary and Application objects">
+    <list default="true" id="ced9ae33-bb26-471a-b552-ce45f53bfba0" name="Changes" comment="add options to menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/slang.txt" beforeDir="false" afterPath="$PROJECT_DIR$/files/slang.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/app/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/app/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/app/ApplicationOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/app/ApplicationOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/app/ApplicationOption.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/slang_word/SlangWordLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/slang_word/SlangWordLibrary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657165746856</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add options to menu">
+      <created>1657215702868</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657215702868</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,6 +126,7 @@
     <MESSAGE value="Initialize project" />
     <MESSAGE value="Create file util and define slang word object" />
     <MESSAGE value="create SlangWordLibrary and Application objects" />
-    <option name="LAST_COMMIT_MESSAGE" value="create SlangWordLibrary and Application objects" />
+    <MESSAGE value="add options to menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="add options to menu" />
   </component>
 </project>

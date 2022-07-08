@@ -12,4 +12,9 @@ public class SlangWordLibrary {
     this.fileUtil = new FileUtil();
     this.database = fileUtil.readSlangWordsFromFile();
   }
+
+  public SlangWord findBySlangWord(String keyWord){
+    String meaning = database.get(keyWord);
+    return meaning != null ? new SlangWord(keyWord, meaning) : null;
+  }
 }
