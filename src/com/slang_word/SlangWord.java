@@ -1,8 +1,8 @@
 package com.slang_word;
 
 public class SlangWord {
-  protected String slangWord = null;
-  protected String meaning = null;
+  private String slangWord = null;
+  private String meaning = null;
 
   public SlangWord() {
   }

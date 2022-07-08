@@ -1,8 +1,6 @@
 package com.slang_word;
 
-import com.constant.ErrorMessage;
 import com.file_util.FileUtil;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +21,7 @@ public class SlangWordLibrary {
     if (database.get(tempt) != null) {
       meaning = database.get(tempt);
     }
-    return meaning != null ? new SlangWord(tempt, meaning) : new SlangWord(keyWord, ErrorMessage.ERROR_NOT_FIND_SLANG_WORD);
+    return meaning != null ? new SlangWord(tempt, meaning) : null;
   }
 
   public List<SlangWord> searchByDefinition(String keyword) {
@@ -46,4 +44,13 @@ public class SlangWordLibrary {
       return true;
     }
   }
+
+  public void editSlangWord(SlangWord slangWord) {
+    this.database.put(slangWord.getSlangWord(), slangWord.getMeaning());
+  }
+
+  public void deleteSlangWord(String slangToDelete) {
+    this.database.remove(slangToDelete);
+  }
 }
+
