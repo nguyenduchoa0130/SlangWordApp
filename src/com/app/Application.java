@@ -17,6 +17,7 @@ import java.util.Scanner;
 public class Application {
   private static HashMap<String, String> hashMapHistory = new HashMap<>();
   private static SlangWordLibrary slangWordLibrary = new SlangWordLibrary();
+
   public static void printMenu() {
     System.out.println("\n||================ MENU ================||");
     System.out.println("1. Find meaning by slang word");
@@ -25,13 +26,16 @@ public class Application {
     System.out.println("4. Create a new slang word");
     System.out.println("5. Edit a slang word");
     System.out.println("6. Delete a slang word");
+    System.out.println("7. Reset slang word list");
     System.out.println("0. Exit application");
     System.out.println("||======================================||");
   }
+
   private static int selectOption() {
     System.out.printf(Behavior.INPUT_MESSAGE);
     return ValidInput.validationInput(Behavior.TYPE_OPTION);
   }
+
   public static void run() {
     chooseFunction();
     do {
@@ -56,6 +60,7 @@ public class Application {
       }
     } while (true);
   }
+
   private static void chooseFunction() {
     int option;
     System.out.println("====|| WELCOME TO SLANG WORD APPLICATION ||====");
@@ -88,6 +93,9 @@ public class Application {
       case OptionSlang.OPT_DELETE_SLANG_WORD:
         deleteSlangWord(slangWordLibrary);
         break;
+      case OptionSlang.OPT_RESET_SLANG_WORD:
+        resetListSlangWords();
+        break;
       default: {
         System.out.println(ErrorMessage.ERROR_NOT_FIND_OPTION);
         chooseFunction();
@@ -95,15 +103,35 @@ public class Application {
       }
     }
   }
+
+  private static void resetListSlangWords() {
+    slangWordLibrary = new SlangWordLibrary();
+  }
+
   private static void deleteSlangWord(SlangWordLibrary slangWordLibrary) {
     SlangWord slangWord = findSlangByWord(slangWordLibrary, true);
     if (slangWord != null) {
-      slangWordLibrary.deleteSlangWord(slangWord.getSlangWord());
-      System.out.println(Behavior.DELETE_SLANG_WORD_SUCCESS);
+      System.out.println("====||  Are you sure you want delete slang word " + slangWord.getSlangWord() + " ||====");
+      System.out.println("Enter 1 to continue");
+      System.out.println("Enter 0 to exit !!!");
+      System.out.println("==============================================");
+      int optionNumber = ValidInput.validationInput(Behavior.USER_OPTION);
+
+      switch (optionNumber) {
+        case UserOption.OPTION_CONTINUE:
+          slangWordLibrary.deleteSlangWord(slangWord.getSlangWord());
+          System.out.println(Behavior.DELETE_SLANG_WORD_SUCCESS);
+          break;
+        case UserOption.OPTION_EXIT:
+          break;
+      }
+
+
     } else {
       System.out.println(ErrorMessage.ERROR_NOT_FIND_SLANG_WORD);
     }
   }
+
   private static void editSlangWord(SlangWordLibrary slangWordLibrary) {
     SlangWord slangWord = findSlangByWord(slangWordLibrary, true);
     if (slangWord != null) {
@@ -117,6 +145,7 @@ public class Application {
       System.out.println(ErrorMessage.ERROR_NOT_FIND_SLANG_WORD);
     }
   }
+
   private static void createSlangWord(SlangWordLibrary slangWordLibrary) {
     System.out.printf(Behavior.CREATE_SLANG_WORD);
     Scanner sc = new Scanner(System.in);
@@ -134,6 +163,7 @@ public class Application {
       System.out.println(ErrorMessage.ERROR_SLANG_EXIST);
     }
   }
+
   private static void showHistoryListSlangWord() {
     if (!hashMapHistory.isEmpty() && hashMapHistory.size() > 0) {
       System.out.println(Behavior.SHOW_HISTORY_LIST_SLANG_WORD);
@@ -144,6 +174,7 @@ public class Application {
       System.out.println(ErrorMessage.ERROR_NOT_FIND_LIST_HISTORY_SLANG_WORD);
     }
   }
+
   private static void findSlangByDefinition(SlangWordLibrary slangWordLibrary) {
     System.out.printf(Behavior.INPUT_DEFINITION);
     Scanner sc = new Scanner(System.in);
@@ -156,6 +187,7 @@ public class Application {
       System.out.println(ErrorMessage.ERROR_NOT_FIND_SLANG_WORD_IN_LIST);
     }
   }
+
   private static SlangWord findSlangByWord(SlangWordLibrary slangWordLibrary, Boolean isEditLibrary) {
     System.out.printf(Behavior.INPUT_SLANG_WORD);
     Scanner sc = new Scanner(System.in);
@@ -169,4 +201,3 @@ public class Application {
     return slangWordLibrary.findBySlangWord(langWord);
   }
 }
-
