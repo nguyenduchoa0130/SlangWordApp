@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SlangWordApp:jar">
+    <output-path>$PROJECT_DIR$</output-path>
+    <root id="archive" name="SlangWordApp.jar">
+      <element id="module-output" name="SlangWordApp" />
+    </root>
+  </artifact>
+</component>
