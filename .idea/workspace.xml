@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ced9ae33-bb26-471a-b552-ce45f53bfba0" name="Changes" comment="add edit and delete feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SlangWordApp.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/app/FunctionShare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/app/FunctionShare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/slang_word/SlangWordLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/slang_word/SlangWordLibrary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +48,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "C:/Coding/projects/SlangWordApp",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Problems",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel"

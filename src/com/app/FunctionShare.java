@@ -16,6 +16,7 @@ import java.util.Scanner;
 
 public class FunctionShare {
   private final static HashMap<String, String> hashMapHistory = new HashMap<>();
+  private static String createSlangWord;
   static void findSlangByDefinition(SlangWordLibrary slangWordLibrary) {
     System.out.printf(Behavior.INPUT_DEFINITION);
     Scanner sc = new Scanner(System.in);
@@ -28,6 +29,7 @@ public class FunctionShare {
       System.out.println(ErrorMessage.ERROR_NOT_FIND_SLANG_WORD_IN_LIST);
     }
   }
+
   static void showHistoryListSlangWord() {
     if (!hashMapHistory.isEmpty()) {
       System.out.println(Behavior.SHOW_HISTORY_LIST_SLANG_WORD);
@@ -42,28 +44,28 @@ public class FunctionShare {
   static SlangWord findSlangByWord(SlangWordLibrary slangWordLibrary, Boolean isEditLibrary) {
     System.out.printf(Behavior.INPUT_SLANG_WORD);
     Scanner sc = new Scanner(System.in);
-    String langWord = sc.nextLine();
+    String slangWord = sc.nextLine();
+    createSlangWord = slangWord;
     if (!isEditLibrary) {
       String pattern = "yyyy-MM-dd HH:mm:ss";
       SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
       String date = simpleDateFormat.format(new Date());
-      hashMapHistory.put(date, langWord);
+      hashMapHistory.put(date, slangWord);
     }
-    return slangWordLibrary.findBySlangWord(langWord);
+    return slangWordLibrary.findBySlangWord(slangWord);
   }
 
   static void createSlangWord(SlangWordLibrary slangWordLibrary) {
-    System.out.printf(Behavior.CREATE_SLANG_WORD);
-    Scanner sc = new Scanner(System.in);
-    String keyWord = sc.nextLine();
-    System.out.printf(Behavior.CREATE_DEFINITION);
-    Scanner sc2 = new Scanner(System.in);
-    String definition = sc2.nextLine();
-    SlangWord slangWord = new SlangWord();
-    slangWord.setSlangWord(keyWord);
-    slangWord.setMeaning(definition);
-    boolean resultCreate = slangWordLibrary.creatSlangWord(slangWord);
-    if (resultCreate) {
+
+    SlangWord slangWord = findSlangByWord(slangWordLibrary, true);
+    if (slangWord == null) {
+      slangWord = new SlangWord();
+      slangWord.setSlangWord(createSlangWord);
+      System.out.printf(Behavior.CREATE_DEFINITION);
+      Scanner sc2 = new Scanner(System.in);
+      String definition = sc2.nextLine();
+      slangWord.setMeaning(definition);
+      slangWordLibrary.creatSlangWord(slangWord);
       System.out.println(Behavior.CREATE_SLANG_WORD_SUCCESS);
     } else {
       System.out.println(ErrorMessage.ERROR_SLANG_EXIST);
@@ -83,6 +85,7 @@ public class FunctionShare {
       System.out.println(ErrorMessage.ERROR_NOT_FIND_SLANG_WORD);
     }
   }
+
   static void deleteSlangWord(SlangWordLibrary slangWordLibrary) {
     SlangWord slangWord = FunctionShare.findSlangByWord(slangWordLibrary, true);
     if (slangWord != null) {
@@ -111,6 +114,7 @@ public class FunctionShare {
     SlangWord slangWord = slangWordLibrary.randomSlangWord();
     System.out.println(slangWord);
   }
+
   private static void startGame(SlangWordLibrary slangWordLibrary, Boolean keyWord) {
 
     GameAnswer gameAnswer = slangWordLibrary.gameRandom(keyWord);
@@ -139,6 +143,7 @@ public class FunctionShare {
       System.out.println(Behavior.ANSWER_INVALID + " and valid answer is: [" + gameAnswer.getValidAnswer() + "]");
     }
   }
+
   static void gameRandomSlangWord(SlangWordLibrary slangWordLibrary, boolean keyWord) {
     startGame(slangWordLibrary, keyWord);
     do {

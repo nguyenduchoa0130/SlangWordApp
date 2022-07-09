@@ -35,14 +35,9 @@ public class SlangWordLibrary {
     return result;
   }
 
-  public boolean creatSlangWord(SlangWord slangWord) {
+  public void creatSlangWord(SlangWord slangWord) {
     String tempt = slangWord.getSlangWord().equals(slangWord.getSlangWord().toUpperCase()) ? slangWord.getSlangWord() : slangWord.getSlangWord().toUpperCase();
-    if (this.database.containsKey(tempt)) {
-      return false;
-    } else {
-      this.database.put(tempt, slangWord.getMeaning());
-      return true;
-    }
+    this.database.put(tempt, slangWord.getMeaning());
   }
 
   public void editSlangWord(SlangWord slangWord) {
