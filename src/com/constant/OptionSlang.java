@@ -1,4 +1,5 @@
 package com.constant;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,7 +12,8 @@ public class OptionSlang {
   public final static int OPT_EDIT_SLANG_WORD = 5;
   public final static int OPT_DELETE_SLANG_WORD = 6;
   public final static int OPT_RESET_SLANG_WORD = 7;
-  public final static List<Integer> LIST_OPTION = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7);
+  public final static int OPT_RANDOM_SLANG_WORD = 8;
+  public final static List<Integer> LIST_OPTION = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8);
 }
 
 

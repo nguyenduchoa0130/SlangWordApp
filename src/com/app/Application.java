@@ -27,6 +27,7 @@ public class Application {
     System.out.println("5. Edit a slang word");
     System.out.println("6. Delete a slang word");
     System.out.println("7. Reset slang word list");
+    System.out.println("8. Random a slang word");
     System.out.println("0. Exit application");
     System.out.println("||======================================||");
   }
@@ -96,12 +97,20 @@ public class Application {
       case OptionSlang.OPT_RESET_SLANG_WORD:
         resetListSlangWords();
         break;
+      case OptionSlang.OPT_RANDOM_SLANG_WORD:
+        randomSlangWord();
+        break;
       default: {
         System.out.println(ErrorMessage.ERROR_NOT_FIND_OPTION);
         chooseFunction();
         break;
       }
     }
+  }
+
+  private static void randomSlangWord() {
+    SlangWord slangWord = slangWordLibrary.randomSlangWord();
+    System.out.println(slangWord);
   }
 
   private static void resetListSlangWords() {

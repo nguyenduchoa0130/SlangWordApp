@@ -5,6 +5,7 @@ import com.file_util.FileUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 import java.util.regex.Pattern;
 
 public class SlangWordLibrary {
@@ -52,6 +53,13 @@ public class SlangWordLibrary {
 
   public void deleteSlangWord(String slangToDelete) {
     this.database.remove(slangToDelete);
+  }
+
+  public SlangWord randomSlangWord() {
+    Random generator = new Random();
+    Object[] keys = this.database.keySet().toArray();
+    String slangWord = (String) keys[generator.nextInt(keys.length)];
+    return new SlangWord(slangWord, database.get(slangWord));
   }
 }
 
