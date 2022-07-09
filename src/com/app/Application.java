@@ -5,6 +5,7 @@ import com.constant.Behavior;
 import com.constant.ErrorMessage;
 import com.constant.OptionSlang;
 import com.constant.UserOption;
+import com.slang_word.GameAnswer;
 import com.slang_word.SlangWord;
 import com.slang_word.SlangWordLibrary;
 
@@ -28,6 +29,8 @@ public class Application {
     System.out.println("6. Delete a slang word");
     System.out.println("7. Reset slang word list");
     System.out.println("8. Random a slang word");
+    System.out.println("9. Game random a slang word");
+    System.out.println("10. Game Random a definition");
     System.out.println("0. Exit application");
     System.out.println("||======================================||");
   }
@@ -100,12 +103,79 @@ public class Application {
       case OptionSlang.OPT_RANDOM_SLANG_WORD:
         randomSlangWord();
         break;
+      case OptionSlang.OPT_GAME_RANDOM_SLANG_WORD:
+        gameRandomSlangWord(slangWordLibrary, true);
+        break;
+      case OptionSlang.OPT_GAME_RANDOM_DEFINITION:
+        gameRandomSlangWord(slangWordLibrary, false);
+        break;
       default: {
         System.out.println(ErrorMessage.ERROR_NOT_FIND_OPTION);
         chooseFunction();
         break;
       }
     }
+  }
+
+  private static void startGame(SlangWordLibrary slangWordLibrary, Boolean keyWord) {
+
+    GameAnswer gameAnswer = slangWordLibrary.gameRandom(keyWord);
+    System.out.println(" ");
+    System.out.println("===============================================");
+    System.out.println("======================|| WELCOME TO GAME ||======================");
+    System.out.println("1. " + gameAnswer.getAnswerA());
+    System.out.println("2. " + gameAnswer.getAnswerB());
+    System.out.println("3. " + gameAnswer.getAnswerC());
+    System.out.println("4. " + gameAnswer.getAnswerD());
+    System.out.println("===============================================");
+
+    System.out.printf(Behavior.INPUT_ANSWER);
+    int optionNumber = ValidInput.validationInput(Behavior.ANSWER_OPTION);
+    boolean result = false;
+    switch (optionNumber) {
+      case UserOption.ANSWER_A:
+        result = ValidInput.compareAnswer(gameAnswer.getAnswerA(), gameAnswer);
+        break;
+      case UserOption.ANSWER_B:
+        result = ValidInput.compareAnswer(gameAnswer.getAnswerB(), gameAnswer);
+        break;
+      case UserOption.ANSWER_C:
+        result = ValidInput.compareAnswer(gameAnswer.getAnswerC(), gameAnswer);
+        break;
+      case UserOption.ANSWER_D:
+        result = ValidInput.compareAnswer(gameAnswer.getAnswerD(), gameAnswer);
+        break;
+    }
+
+    if (result) {
+      System.out.println(Behavior.ANSWER_VALID);
+    } else {
+      System.out.println(Behavior.ANSWER_INVALID + " and valid answer is: [" + gameAnswer.getValidAnswer() + "]");
+    }
+  }
+
+  private static void gameRandomSlangWord(SlangWordLibrary slangWordLibrary, boolean keyWord) {
+    startGame(slangWordLibrary, keyWord);
+    do {
+      System.out.println(" ");
+      System.out.println("||==================================||");
+      System.out.println("Do you wanna continue game?");
+      System.out.println("Enter 1 to continue");
+      System.out.println("Enter 0 to exit !!!");
+      System.out.println("||==================================||");
+      System.out.printf(Behavior.INPUT_MESSAGE);
+      int optionNumber = ValidInput.validationInput(Behavior.USER_OPTION);
+      switch (optionNumber) {
+        case UserOption.OPTION_CONTINUE:
+          startGame(slangWordLibrary, keyWord);
+          break;
+        case UserOption.OPTION_EXIT:
+          return;
+        default:
+          System.out.println(ErrorMessage.ERROR_NOT_FIND_OPTION);
+          break;
+      }
+    } while (true);
   }
 
   private static void randomSlangWord() {

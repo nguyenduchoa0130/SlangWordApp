@@ -4,7 +4,10 @@
     <list default="true" id="ced9ae33-bb26-471a-b552-ce45f53bfba0" name="Changes" comment="add edit and delete feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/app/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/app/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/app/valid/ValidInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/app/valid/ValidInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/constant/Behavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/constant/Behavior.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/constant/OptionSlang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/constant/OptionSlang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/constant/UserOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/constant/UserOption.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/slang_word/SlangWordLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/slang_word/SlangWordLibrary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

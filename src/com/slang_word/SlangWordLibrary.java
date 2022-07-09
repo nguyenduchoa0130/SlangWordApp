@@ -1,11 +1,9 @@
 package com.slang_word;
 
+import com.app.valid.ValidInput;
 import com.file_util.FileUtil;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class SlangWordLibrary {
@@ -60,6 +58,37 @@ public class SlangWordLibrary {
     Object[] keys = this.database.keySet().toArray();
     String slangWord = (String) keys[generator.nextInt(keys.length)];
     return new SlangWord(slangWord, database.get(slangWord));
+  }
+
+  public String getAnswer() {
+    boolean flag = false;
+    String keyWord;
+    do {
+      keyWord = this.randomSlangWord().getSlangWord();
+      flag = ValidInput.checkExistOfItemInList(keyWord);
+    } while (!flag);
+    return keyWord;
+  }
+
+  public GameAnswer gameRandom(boolean keyWord) {
+    GameAnswer gameAnser = new GameAnswer();
+    if (keyWord) {
+      gameAnser.setAnswerA(getAnswer());
+      gameAnser.setAnswerB(getAnswer());
+      gameAnser.setAnswerC(getAnswer());
+      gameAnser.setAnswerD(getAnswer());
+
+    } else {
+      gameAnser.setAnswerA(database.get(getAnswer()));
+      gameAnser.setAnswerB(database.get(getAnswer()));
+      gameAnser.setAnswerC(database.get(getAnswer()));
+      gameAnser.setAnswerD(database.get(getAnswer()));
+    }
+    List<String> listAnswers = Arrays.asList(gameAnser.getAnswerA(), gameAnser.getAnswerB(), gameAnser.getAnswerC(), gameAnser.getAnswerD());
+    Random generator = new Random();
+    String validAnswer = listAnswers.get(generator.nextInt(listAnswers.size()));
+    gameAnser.setValidAnswer(validAnswer);
+    return gameAnser;
   }
 }
 
