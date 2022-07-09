@@ -104,10 +104,10 @@ public class Application {
         FunctionShare.randomSlangWord(slangWordLibrary);
         break;
       case OptionSlang.OPT_GAME_RANDOM_SLANG_WORD:
-        FunctionShare.gameRandomSlangWord(slangWordLibrary, true);
+        FunctionShare.gameRandomSlangWord(slangWordLibrary, false);
         break;
       case OptionSlang.OPT_GAME_RANDOM_DEFINITION:
-        FunctionShare.gameRandomSlangWord(slangWordLibrary, false);
+        FunctionShare.gameRandomSlangWord(slangWordLibrary, true);
         break;
       default: {
         System.out.println(ErrorMessage.ERROR_NOT_FIND_OPTION);

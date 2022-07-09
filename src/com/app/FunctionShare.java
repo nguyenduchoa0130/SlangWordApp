@@ -17,6 +17,7 @@ import java.util.Scanner;
 public class FunctionShare {
   private final static HashMap<String, String> hashMapHistory = new HashMap<>();
   private static String createSlangWord;
+
   static void findSlangByDefinition(SlangWordLibrary slangWordLibrary) {
     System.out.printf(Behavior.INPUT_DEFINITION);
     Scanner sc = new Scanner(System.in);
@@ -126,21 +127,33 @@ public class FunctionShare {
     System.out.println("3. " + gameAnswer.getAnswerC());
     System.out.println("4. " + gameAnswer.getAnswerD());
     System.out.println("===============================================");
+    if (!keyWord) {
+      System.out.println("Question: " + gameAnswer.getSlangWord() + " ?");
 
+    } else {
+      System.out.println("Question: " + gameAnswer.getMeaning() + " ?");
+
+    }
+    System.out.println(" ");
     System.out.printf(Behavior.INPUT_ANSWER);
     int optionNumber = ValidInput.validationInput(Behavior.ANSWER_OPTION);
     boolean result = switch (optionNumber) {
-      case UserOption.ANSWER_A -> ValidInput.compareAnswer(gameAnswer.getAnswerA(), gameAnswer);
-      case UserOption.ANSWER_B -> ValidInput.compareAnswer(gameAnswer.getAnswerB(), gameAnswer);
-      case UserOption.ANSWER_C -> ValidInput.compareAnswer(gameAnswer.getAnswerC(), gameAnswer);
-      case UserOption.ANSWER_D -> ValidInput.compareAnswer(gameAnswer.getAnswerD(), gameAnswer);
+      case UserOption.ANSWER_A -> ValidInput.compareAnswer(gameAnswer.getAnswerA(), gameAnswer, keyWord);
+      case UserOption.ANSWER_B -> ValidInput.compareAnswer(gameAnswer.getAnswerB(), gameAnswer, keyWord);
+      case UserOption.ANSWER_C -> ValidInput.compareAnswer(gameAnswer.getAnswerC(), gameAnswer, keyWord);
+      case UserOption.ANSWER_D -> ValidInput.compareAnswer(gameAnswer.getAnswerD(), gameAnswer, keyWord);
       default -> false;
     };
-
     if (result) {
       System.out.println(Behavior.ANSWER_VALID);
     } else {
-      System.out.println(Behavior.ANSWER_INVALID + " and valid answer is: [" + gameAnswer.getValidAnswer() + "]");
+      if (!keyWord) {
+        System.out.println(Behavior.ANSWER_INVALID + " and valid answer is: [" + gameAnswer.getMeaning() + "]");
+
+      } else {
+        System.out.println(Behavior.ANSWER_INVALID + " and valid answer is: [" + gameAnswer.getSlangWord() + "]");
+
+      }
     }
   }
 

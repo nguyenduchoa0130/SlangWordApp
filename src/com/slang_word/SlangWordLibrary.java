@@ -66,24 +66,28 @@ public class SlangWordLibrary {
   }
 
   public GameAnswer gameRandom(boolean keyWord) {
-    GameAnswer gameAnser = new GameAnswer();
-    if (keyWord) {
-      gameAnser.setAnswerA(getAnswer());
-      gameAnser.setAnswerB(getAnswer());
-      gameAnser.setAnswerC(getAnswer());
-      gameAnser.setAnswerD(getAnswer());
-
-    } else {
-      gameAnser.setAnswerA(database.get(getAnswer()));
-      gameAnser.setAnswerB(database.get(getAnswer()));
-      gameAnser.setAnswerC(database.get(getAnswer()));
-      gameAnser.setAnswerD(database.get(getAnswer()));
-    }
-    List<String> listAnswers = Arrays.asList(gameAnser.getAnswerA(), gameAnser.getAnswerB(), gameAnser.getAnswerC(), gameAnser.getAnswerD());
+    GameAnswer gameAswer = new GameAnswer();
+    String a = getAnswer();
+    String b = getAnswer();
+    String c = getAnswer();
+    String d = getAnswer();
+    List<String> listAnswers = Arrays.asList(a, b, c, d);
     Random generator = new Random();
-    String validAnswer = listAnswers.get(generator.nextInt(listAnswers.size()));
-    gameAnser.setValidAnswer(validAnswer);
-    return gameAnser;
+    String resultRandom = listAnswers.get(generator.nextInt(listAnswers.size()));
+    gameAswer.setSlangWord(resultRandom);
+    gameAswer.setMeaning(database.get(resultRandom));
+    if (!keyWord) {
+      gameAswer.setAnswerA(database.get(a));
+      gameAswer.setAnswerB(database.get(b));
+      gameAswer.setAnswerC(database.get(c));
+      gameAswer.setAnswerD(database.get(d));
+    } else {
+      gameAswer.setAnswerA(a);
+      gameAswer.setAnswerB(b);
+      gameAswer.setAnswerC(c);
+      gameAswer.setAnswerD(d);
+    }
+    return gameAswer;
   }
 }
 

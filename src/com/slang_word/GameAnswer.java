@@ -1,21 +1,22 @@
 package com.slang_word;
 
-public class GameAnswer {
+public class GameAnswer extends SlangWord {
   private String answerA;
   private String answerB;
   private String answerC;
   private String answerD;
-  private String validAnswer;
+  private String keyWord;
 
-  public GameAnswer(String answerA, String answerB, String answerC, String answerD, String validAnswer) {
+  public GameAnswer() {
+  }
+
+  public GameAnswer(String slangWord, String meaning, String answerA, String answerB, String answerC, String answerD, String keyWord) {
+    super(slangWord, meaning);
     this.answerA = answerA;
     this.answerB = answerB;
     this.answerC = answerC;
     this.answerD = answerD;
-    this.validAnswer = validAnswer;
-  }
-
-  public GameAnswer() {
+    this.keyWord = keyWord;
   }
 
   public String getAnswerA() {
@@ -34,6 +35,7 @@ public class GameAnswer {
     this.answerB = answerB;
   }
 
+
   public String getAnswerC() {
     return answerC;
   }
@@ -50,11 +52,11 @@ public class GameAnswer {
     this.answerD = answerD;
   }
 
-  public String getValidAnswer() {
-    return validAnswer;
+  public String getKeyWord() {
+    return keyWord;
   }
 
-  public void setValidAnswer(String validAnswer) {
-    this.validAnswer = validAnswer;
+  public void setKeyWord(String keyWord) {
+    this.keyWord = keyWord;
   }
 }

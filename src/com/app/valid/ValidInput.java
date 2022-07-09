@@ -12,6 +12,7 @@ import java.util.Set;
 
 public class ValidInput {
   private static Set<String> items = new HashSet<>();
+
   private static boolean checkNumber(String strNum) {
     if (strNum == null) {
       return false;
@@ -23,6 +24,7 @@ public class ValidInput {
     }
     return true;
   }
+
   private static int checkInputNumber() {
     Scanner scanner = new Scanner(System.in);
     String inputString = scanner.nextLine();
@@ -68,19 +70,26 @@ public class ValidInput {
     return result;
   }
 
-  public static boolean checkExistOfItemInList(String item){
-    if(!items.contains(item)){
+  public static boolean checkExistOfItemInList(String item) {
+    if (!items.contains(item)) {
       items.add(item);
       return false;
     }
     return true;
   }
 
-  public static boolean compareAnswer(String answer, GameAnswer gameAnser) {
-    if (answer.equalsIgnoreCase(gameAnser.getValidAnswer())) {
-      return true;
+  public static boolean compareAnswer(String answer, GameAnswer gameAnswer, boolean keyWord) {
+    if (!keyWord) {
+      if (answer.equalsIgnoreCase(gameAnswer.getMeaning())) {
+        return true;
+      }
+      return false;
+    } else {
+      if (answer.equalsIgnoreCase(gameAnswer.getSlangWord())) {
+        return true;
+      }
+      return false;
     }
-    return false;
   }
 
 

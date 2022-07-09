@@ -4,7 +4,11 @@
     <list default="true" id="ced9ae33-bb26-471a-b552-ce45f53bfba0" name="Changes" comment="add edit and delete feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SlangWordApp.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/app/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/app/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/app/FunctionShare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/app/FunctionShare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/app/valid/ValidInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/app/valid/ValidInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/slang_word/GameAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/slang_word/GameAnswer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/slang_word/SlangWord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/slang_word/SlangWord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/slang_word/SlangWordLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/slang_word/SlangWordLibrary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,17 +47,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Coding/projects/SlangWordApp",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Coding/projects/SlangWordApp&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Coding\projects\SlangWordApp\files" />
